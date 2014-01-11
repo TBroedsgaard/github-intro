@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="author" content="Presentation: arbr.dk/github" />
+  <meta name="author" content="Presentation: arbr.dk/github.html" />
   <title>Introduction to git &amp; GitHub</title>
   <link rel="stylesheet" type="text/css" media="screen, projection, print"
     href="http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
@@ -17,7 +17,7 @@
 <div class="slide titlepage">
   <h1 class="title">Introduction to git &amp; GitHub</h1>
   <p class="author">
-Presentation: <a href="http://www.arbr.dk/github.html">arbr.dk/github</a>
+Presentation: <a href="http://www.arbr.dk/github.html">arbr.dk/github.html</a>
   </p>
   <p class="date">Demo repo: <a href="https://github.com/TBroedsgaard/github-demo">TBroedsgaard/github-demo</a></p>
 </div>
@@ -91,7 +91,7 @@ Presentation: <a href="http://www.arbr.dk/github.html">arbr.dk/github</a>
 <ul>
 <li>Need a new feature? Get a new branch!</li>
 <li>You can experiment in the branch without breaking your main program</li>
-<li>When it works, you merge the two branches</li>
+<li>When it works, you merge the new and main branches</li>
 <li>If it never works, you throw it away</li>
 <li>Several branches for several features</li>
 </ul></li>
@@ -202,6 +202,52 @@ git log --graph --oneline --decorate // pretty!</code></pre>
 <img src="images/git9.png" /><p class="caption"></p>
 </div>
 </div>
+<div class="section slide level2" id="git-basics-demo-9">
+<h1>git basics demo:</h1>
+<ul>
+<li>Working with remotes:</li>
+</ul>
+<pre><code>git remote add origin &lt;repo url&gt; // add remote with repo url and call it origin</code></pre>
+<div class="figure">
+<img src="images/git10.png" /><p class="caption"></p>
+</div>
+</div>
+<div class="section slide level2" id="git-basics-demo-10">
+<h1>git basics demo:</h1>
+<pre><code>git push origin master // push master to remote repo called origin</code></pre>
+<div class="figure">
+<img src="images/git11.png" /><p class="caption"></p>
+</div>
+</div>
+<div class="section slide level2" id="git-basics-demo-11">
+<h1>git basics demo:</h1>
+<pre><code>git clone &lt;repo url&gt; // make local clone of remote repo</code></pre>
+<div class="figure">
+<img src="images/git12.png" /><p class="caption"></p>
+</div>
+</div>
+<div class="section slide level2" id="git-basics-demo-12">
+<h1>git basics demo:</h1>
+<pre><code>// do work
+git commit -am &quot;message&quot;</code></pre>
+<div class="figure">
+<img src="images/git13.png" /><p class="caption"></p>
+</div>
+</div>
+<div class="section slide level2" id="git-basics-demo-13">
+<h1>git basics demo:</h1>
+<pre><code>git push origin master</code></pre>
+<div class="figure">
+<img src="images/git14.png" /><p class="caption"></p>
+</div>
+</div>
+<div class="section slide level2" id="git-basics-demo-14">
+<h1>git basics demo:</h1>
+<pre><code>git pull origin master</code></pre>
+<div class="figure">
+<img src="images/git15.png" /><p class="caption"></p>
+</div>
+</div>
 <div class="section slide level2" id="git-basic-commands">
 <h1>git basic commands:</h1>
 <pre><code>git init // create local repo
@@ -216,7 +262,10 @@ git branch // list branches
 git checkout master // point HEAD at master
 git branch answer-hello // create branch answer-hello
 git checkout answer-hello // point HEAD at answer-hello
-git merge answer-hello master // merge answer-hello into master</code></pre>
+git merge answer-hello master // merge answer-hello into master
+git clone &lt;repo url&gt; // get everything from repo url
+git push origin master // push new commits to origin/master
+git pull origin master // pull new commits from origin/master</code></pre>
 </div>
 <div class="section slide level2" id="git-basic-branching-and-merging">
 <h1>git basic branching and merging:</h1>
@@ -313,7 +362,7 @@ git merge answer-hello master // merge answer-hello into master</code></pre>
 <img src="images/publish.png" /><p class="caption"></p>
 </div>
 <ul>
-<li>Pullrequest</li>
+<li>Pull request</li>
 </ul>
 <div class="figure">
 <img src="images/pullrequest.png" /><p class="caption"></p>
@@ -373,7 +422,7 @@ git status</code></pre>
 <ul>
 <li>and commit (can also be done in GH4W)</li>
 </ul>
-<pre><code>git commit
+<pre><code>git commit - m &quot;message&quot;
 git status</code></pre>
 <div class="figure">
 <img src="images/conflict-fix.png" /><p class="caption"></p>
@@ -404,8 +453,9 @@ git status</code></pre>
 <h1>Questions / extras / beer</h1>
 <ul>
 <li>GH4W and commandline sucks? Try SourceTree</li>
+<li>GitHub sucks? Try Bitbucket (or GitLab)</li>
 <li>rebase, squash to rewrite history</li>
-<li>cherry pick for staging parts of file</li>
+<li>add only parts of file to staging</li>
 </ul>
 </div>
 </body>

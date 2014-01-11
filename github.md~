@@ -301,7 +301,7 @@ git pull origin master // pull new commits from origin/master
 
 ![](images/publish.png)    
 
-- Pull request
+- Pullrequest
 
 ![](images/pullrequest.png)
 

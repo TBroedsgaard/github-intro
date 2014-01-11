@@ -1,0 +1,74 @@
+% show a dir with two files
+% do a commit on those files
+% change one of the files
+% do a new commit
+% move HEAD back and forth to show file changes
+
+\tikzstyle{commit}=[circle,draw=blue!50,fill=blue!20,ultra thick,inner sep=5pt,minimum size=6mm,node distance=15mm] {};
+\tikzstyle{commit_new}=[circle,draw=red!50,fill=red!20,ultra thick,inner sep=5pt,minimum size=6mm,node distance=15mm] {};
+\tikzstyle{branch}=[rectangle,draw=red!50,fill=red!20,ultra thick,inner sep=5pt,minimum size=6mm,node distance=20mm] {};
+\tikzstyle{head}=[rectangle,draw=teal!50,fill=teal!20,ultra thick,inner sep=5pt,minimum size=6mm,node distance=30mm] {};
+\tikzstyle{file}=[rectangle,draw=green!50,fill=green!20,ultra thick,inner sep=5pt,minimum size=6mm,node distance=25mm] {};
+\tikzstyle{commit_to_commit}=[>=stealth,fill=blue!50,ultra thick,draw=blue!50]
+\tikzstyle{commit_to_file}=[>=stealth,,fill=green!50,ultra thick,draw=green!50]
+\tikzstyle{pointer_to_commit}=[>=stealth,fill=red!50,ultra thick,draw=red!50]
+\tikzstyle{head_to_pointer}=[>=stealth,fill=teal!50,ultra thick,draw=teal!50]
+\begin{tikzpicture}   
+  \node (sam) at (0,1) {sam};
+  \node[commit]	(commit1a) 	{};
+  \node[commit]	(commit2a)		[below of=commit1a]	{};
+  \node[commit] (commit3a) [below of=commit2a] {};
+  \node[commit] (commit4a) [below right of=commit2a] {};
+
+  \draw[->,commit_to_commit] (commit2a) to (commit1a);
+  \draw[->, commit_to_commit] (commit3a) to (commit2a);
+  \draw[->, commit_to_commit] (commit4a) to (commit2a);
+  \node[commit] (commit5a) [below of=commit3a] {};
+  \draw[->, commit_to_commit] (commit5a) to (commit3a);
+  \draw[->, commit_to_commit] (commit5a) to (commit4a);
+
+  \node[branch] (master) [right of=commit5a] {master};
+  \draw[->,pointer_to_commit] (master) to (commit5a);
+
+ % \draw[->,>=stealth,ultra thick] (2,-2) to (4,-2);
+ % \draw[->,>=stealth,ultra thick] (4,-3) to (2,-3);
+
+  \node (origin) at (5,1) {origin};
+  \node[commit] 	(commit1b)  at (5,0)	{};
+  \node[commit]	(commit2b)		[below of=commit1b]	{};
+  \node[commit] (commit3b) [below of=commit2b] {};
+  \node[commit] (commit4b) [below right of=commit2b] {};
+
+  \draw[->,commit_to_commit] (commit2b) to (commit1b);
+  \draw[->, commit_to_commit] (commit3b) to (commit2b);
+  \draw[->, commit_to_commit] (commit4b) to (commit2b);
+  \node[commit] (commit5b) [below of=commit3b] {};
+  \draw[->, commit_to_commit] (commit5b) to (commit3b);
+  \draw[->, commit_to_commit] (commit5b) to (commit4b);
+
+  \node[branch] (master) [right of=commit5b] {master};
+  \draw[->,pointer_to_commit] (master) to (commit5b);
+
+%  \draw[->,>=stealth,ultra thick] (7,-2) to (9,-2);
+
+  \node (origin) at (10,1) {jack};
+  \node[commit] 	(commit1c)  at (10,0)	{};
+  \node[commit]	(commit2c)		[below of=commit1c]	{};
+  \node[commit] (commit3c) [below of=commit2c] {};
+  \node[commit] (commit4c) [below right of=commit2c] {};
+
+  \draw[->,commit_to_commit] (commit2c) to (commit1c);
+  \draw[->, commit_to_commit] (commit3c) to (commit2c);
+  \draw[->, commit_to_commit] (commit4c) to (commit2c);
+  \node[commit] (commit5c) [below of=commit3c] {};
+  \draw[->, commit_to_commit] (commit5c) to (commit3c);
+  \draw[->, commit_to_commit] (commit5c) to (commit4c);
+
+  \node[commit_new] (commit6c) [below of=commit5c] {};
+  \draw[->,commit_to_commit] (commit6c) to (commit5c);
+
+  \node[branch] (master) [right of=commit6c] {master};
+  \draw[->,pointer_to_commit] (master) to (commit6c);
+
+  
+\end{tikzpicture}
