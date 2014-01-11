@@ -1,0 +1,22 @@
+% show a dir with two files
+% do a commit on those files
+% change one of the files
+% do a new commit
+% move HEAD back and forth to show file changes
+
+\tikzstyle{commit}=[rectangle,draw=blue!50,fill=blue!20,ultra thick,inner sep=5pt,minimum size=6mm,node distance=35mm] {};
+\tikzstyle{pointer}=[rectangle,draw=red!50,fill=red!20,ultra thick,inner sep=5pt,minimum size=6mm,node distance=30mm] {};
+\tikzstyle{file}=[rectangle,draw=green!50,fill=green!20,ultra thick,inner sep=5pt,minimum size=6mm,node distance=25mm] {};
+\tikzstyle{commit_to_commit}=[>=stealth,fill=blue!50,ultra thick,draw=blue!50]
+\tikzstyle{commit_to_file}=[>=stealth,,fill=green!50,ultra thick,draw=green!50]
+\tikzstyle{pointer_to_commit}=[>=stealth,fill=red!50,ultra thick,draw=red!50]
+\begin{tikzpicture}   
+
+  \node[file] (program-v1) {program.py (v1)};   
+  \node[file] (readme) [below of=program-v1] {README.md};
+  \node[commit]	(commit1)		[right of=program-v1]			{0354e3};
+
+  \draw[->,commit_to_file] (commit1) to (program-v1);
+  \draw[->,commit_to_file] (commit1) to (readme);
+  
+\end{tikzpicture}

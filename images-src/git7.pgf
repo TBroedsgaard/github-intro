@@ -1,0 +1,39 @@
+% show a dir with two files
+% do a commit on those files
+% change one of the files
+% do a new commit
+% move HEAD back and forth to show file changes
+
+\tikzstyle{commit}=[rectangle,draw=blue!50,fill=blue!20,ultra thick,inner sep=5pt,minimum size=6mm,node distance=35mm] {};
+\tikzstyle{branch}=[rectangle,draw=red!50,fill=red!20,ultra thick,inner sep=5pt,minimum size=6mm,node distance=30mm] {};
+\tikzstyle{head}=[rectangle,draw=teal!50,fill=teal!20,ultra thick,inner sep=5pt,minimum size=6mm,node distance=30mm] {};
+\tikzstyle{file}=[rectangle,draw=green!50,fill=green!20,ultra thick,inner sep=5pt,minimum size=6mm,node distance=25mm] {};
+\tikzstyle{commit_to_commit}=[>=stealth,fill=blue!50,ultra thick,draw=blue!50]
+\tikzstyle{commit_to_file}=[>=stealth,,fill=green!50,ultra thick,draw=green!50]
+\tikzstyle{pointer_to_commit}=[>=stealth,fill=red!50,ultra thick,draw=red!50]
+\tikzstyle{head_to_pointer}=[>=stealth,fill=teal!50,ultra thick,draw=teal!50]
+\begin{tikzpicture}   
+
+  \node[file] (program-v1) {program.py (v1)};   
+  \node[file] (readme) [below of=program-v1] {README.md};
+  \node[file] (program-v2) [below of=readme] {program.py (v2)};   
+  \node[file] (program-v3) [below of=program-v2] {program.py (v3)};
+  \node[commit]	(commit1)		[right of=program-v1]			{0354e3};
+  \node[commit]	(commit2)		[below of=commit1]	{896379};
+  \node[commit] (commit3) [below of=commit2] {77bd919};
+  \node[branch] (master) [right of=commit2] {master};
+  \node[head] (head) [right of=master] {HEAD};
+  \node[branch] (answer-hello) [right of=commit3] {answer-hello};
+  \draw[->,commit_to_commit] (commit2) to (commit1);
+  \draw[->,commit_to_file] (commit1) to (program-v1);
+  \draw[->,commit_to_file] (commit1) to (readme);
+  \draw[->,commit_to_file] (commit2) to (readme);
+  \draw[->,commit_to_file] (commit2) to (program-v2);
+  \draw[->,pointer_to_commit] (master) to (commit2);
+  \draw[->,head_to_pointer] (head) to (answer-hello);
+  \draw[->,pointer_to_commit] (answer-hello) to (commit3);
+  \draw[->, commit_to_commit] (commit3) to (commit2);
+  \draw[->,commit_to_file] (commit3) to (readme);
+  \draw[->,commit_to_file] (commit3) to (program-v3);
+  
+\end{tikzpicture}

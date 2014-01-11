@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Presentation: arbr.dk/github" />
+  <title>Introduction to git &amp; GitHub</title>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js.gz"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">Introduction to git &amp; GitHub</h1>
+  <p class="author">
+Presentation: <a href="http://www.arbr.dk/github.html">arbr.dk/github</a>
+  </p>
+  <p class="date">Demo repo: <a href="https://github.com/TBroedsgaard/github-demo">TBroedsgaard/github-demo</a></p>
+</div>
+<div class="section slide level2" id="agenda">
+<h1>Agenda:</h1>
+<ul>
+<li>About git
+<ul>
+<li>Basic workflow</li>
+<li>git demo, how it works</li>
+</ul></li>
+<li>About GitHub
+<ul>
+<li><a href="http://scottchacon.com/2011/08/31/github-flow.html">GitHub Flow</a></li>
+<li><a href="http://net.tutsplus.com/articles/general/team-collaboration-with-github/">Project Management</a> (briefly)</li>
+</ul></li>
+<li>Hands-on demo
+<ul>
+<li>GitHub for Windows</li>
+<li>Creating and merging branches</li>
+<li>Merge conflicts</li>
+</ul></li>
+<li>Questions
+<ul>
+<li>extras / beer</li>
+</ul></li>
+</ul>
+</div>
+<div class="section slide level2" id="you-need">
+<h1>You need:</h1>
+<ul>
+<li><a href="http://windows.github.com/">GitHub for Windows</a></li>
+<li><a href="https://github.com/">GitHub account</a></li>
+</ul>
+</div>
+<div class="section slide level2" id="git">
+<h1>git:</h1>
+<ul>
+<li>&quot;fast, scalable, distributed revision control system&quot;
+<ul>
+<li>Repository (archive) with full history (versioning)</li>
+<li>Local copy (fast, good for offline usage)</li>
+<li>Powerful and cheap branching and merging</li>
+<li>Flexible: a workflow for any project</li>
+<li>not an improved version of SVN - very different</li>
+</ul></li>
+</ul>
+<ul class="incremental">
+<li>&quot;the stupid content tracker&quot;
+<ul class="incremental">
+<li>You can break your repo</li>
+<li>git cannot fix it for you</li>
+<li>But it wants to help you</li>
+</ul></li>
+</ul>
+</div>
+<div class="section slide level2" id="basic-git-workflow">
+<h1>Basic git workflow:</h1>
+<ul>
+<li>Develop features in iterations
+<ul>
+<li>Write minimum code to make it work</li>
+<li>Stage and commit changes</li>
+<li>Iterate, adding try-catch</li>
+<li>Stage and commit changes</li>
+<li>Iterate, clean up code (add comments etc)</li>
+<li>Stage and commit changes</li>
+<li>Move on...</li>
+</ul></li>
+<li>Develop features in isolation
+<ul>
+<li>Need a new feature? Get a new branch!</li>
+<li>You can experiment in the branch without breaking your main program</li>
+<li>When it works, you merge the two branches</li>
+<li>If it never works, you throw it away</li>
+<li>Several branches for several features</li>
+</ul></li>
+</ul>
+</div>
+<div class="section slide level2" id="git-basics-demo">
+<h1>git basics demo:</h1>
+<ul>
+<li>Directory with two files:</li>
+</ul>
+<pre><code>git init // create local repo
+git status // get status</code></pre>
+<div class="figure">
+<img src="images/git1.png" /><p class="caption"></p>
+</div>
+</div>
+<div class="section slide level2" id="git-basics-demo-1">
+<h1>git basics demo:</h1>
+<ul>
+<li>Do first commit</li>
+</ul>
+<pre><code>git add . // add all untracked files to staging
+git commit -m &quot;message&quot; // commit with message</code></pre>
+<div class="figure">
+<img src="images/git2.png" /><p class="caption"></p>
+</div>
+</div>
+<div class="section slide level2" id="git-basics-demo-2">
+<h1>git basics demo:</h1>
+<ul>
+<li>More work, second commit</li>
+</ul>
+<pre><code>git status // check status
+git diff // line-by-line comparison
+git commit -am &quot;message&quot; // add all tracked files to staging and commit with message 
+git log // show commit log</code></pre>
+<div class="figure">
+<img src="images/git3.png" /><p class="caption"></p>
+</div>
+</div>
+<div class="section slide level2" id="git-basics-demo-3">
+<h1>git basics demo:</h1>
+<ul>
+<li>Introducing HEAD</li>
+</ul>
+<div class="figure">
+<img src="images/git4.png" /><p class="caption"></p>
+</div>
+</div>
+<div class="section slide level2" id="git-basics-demo-4">
+<h1>git basics demo:</h1>
+<ul>
+<li>Point HEAD at commit</li>
+</ul>
+<pre><code>git checkout &lt;commit&gt; // point HEAD at commit
+git status</code></pre>
+<div class="figure">
+<img src="images/git5.png" /><p class="caption"></p>
+</div>
+</div>
+<div class="section slide level2" id="git-basics-demo-5">
+<h1>git basics demo:</h1>
+<ul>
+<li>Introducing branches</li>
+</ul>
+<pre><code>git branch // list branches
+git checkout master // point HEAD at master</code></pre>
+<div class="figure">
+<img src="images/git6.png" /><p class="caption"></p>
+</div>
+</div>
+<div class="section slide level2" id="git-basics-demo-6">
+<h1>git basics demo:</h1>
+<ul>
+<li>Branching</li>
+</ul>
+<pre><code>git branch answer-hello // create branch answer-hello
+git checkout answer-hello // point HEAD at answer-hello</code></pre>
+<ul>
+<li>Do some work, commit</li>
+</ul>
+<pre><code>git status // check status
+git commit -am &quot;message&quot; // add all tracked files to staging and commit with message </code></pre>
+<div class="figure">
+<img src="images/git7.png" /><p class="caption"></p>
+</div>
+</div>
+<div class="section slide level2" id="git-basics-demo-7">
+<h1>git basics demo:</h1>
+<ul>
+<li>To illustrate merging, do some stuff on master:</li>
+</ul>
+<pre><code>git checkout master
+// do work
+git commit -am &quot;message&quot;</code></pre>
+<div class="figure">
+<img src="images/git8.png" /><p class="caption"></p>
+</div>
+</div>
+<div class="section slide level2" id="git-basics-demo-8">
+<h1>git basics demo:</h1>
+<ul>
+<li>Merge branches:</li>
+</ul>
+<pre><code>git merge answer-hello // merge answer-hello into your current branch
+git log --graph --oneline --decorate // pretty!</code></pre>
+<div class="figure">
+<img src="images/git9.png" /><p class="caption"></p>
+</div>
+</div>
+<div class="section slide level2" id="git-basic-commands">
+<h1>git basic commands:</h1>
+<pre><code>git init // create local repo
+git status // get status
+git add . // add all untracked files to staging
+git commit -m &quot;message&quot; // commit with message
+git diff // line-by-line comparison
+git commit -am &quot;message&quot; // add all tracked files to staging and commit with message 
+git log // show commit log
+git checkout &lt;commit&gt; // point HEAD at commit
+git branch // list branches
+git checkout master // point HEAD at master
+git branch answer-hello // create branch answer-hello
+git checkout answer-hello // point HEAD at answer-hello
+git merge answer-hello master // merge answer-hello into master</code></pre>
+</div>
+<div class="section slide level2" id="git-basic-branching-and-merging">
+<h1>git basic branching and merging:</h1>
+<ul>
+<li>The master branch is sacred (contains working code)</li>
+<li>New features developed in seperate branches</li>
+<li>To bring a feature into master you merge the branch containing the feature</li>
+<li>To maintain virginity of master:
+<ul>
+<li>merge master into the feature branch</li>
+<li>make sure the code compiles (and works)</li>
+<li>only now push to master</li>
+<li>to achieve nirvana: <strong>never</strong> push to master - use pull request</li>
+</ul></li>
+</ul>
+</div>
+<div class="section slide level2" id="git-flow">
+<h1>git-flow:</h1>
+<div class="figure">
+<img src="http://nvie.com/img/2009/12/Screen-shot-2009-12-24-at-11.32.03.png" /><p class="caption"></p>
+</div>
+</div>
+<div class="section slide level2" id="github">
+<h1>GitHub:</h1>
+<ul>
+<li>&quot;Social coding&quot;</li>
+<li>Central repo hosting</li>
+<li>Issue management (and wiki and other awesome features)</li>
+<li>Pretty stable</li>
+<li>De facto standard for open source (forking, pull request)</li>
+<li>Team and organization repo</li>
+<li>Expensive for private repo</li>
+</ul>
+</div>
+<div class="section slide level2" id="github-flow">
+<h1>GitHub-flow:</h1>
+<div class="figure">
+<img src="images/githubflow.png" /><p class="caption"></p>
+</div>
+<ul>
+<li>master is always in a deployable state</li>
+<li>Bugfixes and features developed in seperate branches</li>
+<li>Keeps it simple</li>
+<li>Easy to learn, difficult to screw up real bad</li>
+<li>Works both with team repo and forked repos</li>
+</ul>
+</div>
+<div class="section slide level2" id="github-flow-step-by-step">
+<h1>GitHub-flow step by step:</h1>
+<ul>
+<li>Create a repo on GitHub, invite team members</li>
+<li>Clone the repo to an empty folder using GH4W</li>
+<li>Either copy your existing solution-folder into the new folder or create a new solution</li>
+<li>Create a new branch locally with GH4W, select it and publish it - always do your own work in your own branch</li>
+<li>Now do your work and commits</li>
+<li>when the feature is done, do a pull request on GitHub</li>
+<li>Remember to sync master once a day, and merge it into your working branch</li>
+</ul>
+</div>
+<div class="section slide level2" id="project-management">
+<h1>Project management:</h1>
+<ul>
+<li>Issues &amp; Milestones</li>
+<li><a href="http://www.huboard.com">Huboard</a> - Beta version rocks</li>
+<li>Pull request as discussion</li>
+<li>Code review</li>
+<li>No timetracking &amp; burndown :( (do it yourself)</li>
+</ul>
+</div>
+<div class="section slide level2" id="break">
+<h1>Break:</h1>
+<ul>
+<li>Post your username to <a href="https://github.com/TBroedsgaard/github-demo">issue #1</a></li>
+</ul>
+</div>
+<div class="section slide level2" id="hands-on">
+<h1>Hands-on:</h1>
+<ul>
+<li>Create branch</li>
+</ul>
+<div class="figure">
+<img src="images/branch.png" /><p class="caption"></p>
+</div>
+<ul>
+<li>Do work, then commit</li>
+</ul>
+<div class="figure">
+<img src="images/commit.png" /><p class="caption"></p>
+</div>
+<ul>
+<li>Publish</li>
+</ul>
+<div class="figure">
+<img src="images/publish.png" /><p class="caption"></p>
+</div>
+<ul>
+<li>Pullrequest</li>
+</ul>
+<div class="figure">
+<img src="images/pullrequest.png" /><p class="caption"></p>
+</div>
+</div>
+<div class="section slide level2" id="merge-conflicts">
+<h1>Merge conflicts:</h1>
+<ul>
+<li>Merge in GH4W:</li>
+</ul>
+<div class="figure">
+<img src="images/managemerge.png" /><p class="caption"></p>
+</div>
+<div class="figure">
+<img src="images/preparingmerge.png" /><p class="caption"></p>
+</div>
+<ul>
+<li>Boom!</li>
+</ul>
+<div class="figure">
+<img src="images/unabletomerge.png" /><p class="caption"></p>
+</div>
+</div>
+<div class="section slide level2" id="git-status-to-the-rescue">
+<h1>git status to the rescue!</h1>
+<pre><code>git status // read and comprehend</code></pre>
+<div class="figure">
+<img src="images/gitstatus-conflict.png" /><p class="caption"></p>
+</div>
+</div>
+<div class="section slide level2" id="fix-conflict-in-srcatestatestprogram.cs">
+<h1>Fix conflict in src/atest/atest/Program.cs:</h1>
+<ul>
+<li>Before:</li>
+</ul>
+<div class="figure">
+<img src="images/file-conflict.png" /><p class="caption"></p>
+</div>
+<ul>
+<li>After:</li>
+</ul>
+<div class="figure">
+<img src="images/file-fixed.png" /><p class="caption"></p>
+</div>
+</div>
+<div class="section slide level2" id="commit-to-complete-merge-commandline">
+<h1>Commit to complete merge (commandline):</h1>
+<ul>
+<li>stage</li>
+</ul>
+<pre><code>git status
+git add &lt;filename&gt;
+git status</code></pre>
+<div class="figure">
+<img src="images/gitstatus-fixed.png" /><p class="caption"></p>
+</div>
+<ul>
+<li>and commit (can also be done in GH4W)</li>
+</ul>
+<pre><code>git commit
+git status</code></pre>
+<div class="figure">
+<img src="images/conflict-fix.png" /><p class="caption"></p>
+</div>
+</div>
+<div class="section slide level2" id="merge-conflict-summary">
+<h1>Merge conflict summary:</h1>
+<ul>
+<li>Try to merge, conflict breaks your repo</li>
+<li>Find conflicted files with git status</li>
+<li>Fix conflict in Visual Studio</li>
+<li>Stage and commit</li>
+</ul>
+</div>
+<div class="section slide level2" id="resources">
+<h1>Resources:</h1>
+<ul>
+<li><a href="http://gitref.org/">git reference</a></li>
+<li><a href="http://git-scm.com/book">Pro Git</a></li>
+<li><a href="https://www.codeschool.com/">Code School</a>
+<ul>
+<li>Try Git</li>
+<li>Git Real 1 &amp; 2</li>
+</ul></li>
+</ul>
+</div>
+<div class="section slide level2" id="questions-extras-beer">
+<h1>Questions / extras / beer</h1>
+<ul>
+<li>GH4W and commandline sucks? Try SourceTree</li>
+<li>rebase, squash to rewrite history</li>
+<li>cherry pick for staging parts of file</li>
+</ul>
+</div>
+</body>
+</html>
