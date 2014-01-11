@@ -1,5 +1,5 @@
 % Introduction to git & GitHub
-% Presentation: [arbr.dk/github.html](http://www.arbr.dk/github.html)
+% Presentation: [arbr.dk/github.html](http://www.arbr.dk/github.html) / [source on GitHub](https://github.com/TBroedsgaard/github-intro)
 % Demo repo: [TBroedsgaard/github-demo](https://github.com/TBroedsgaard/github-demo)
 
 ## Agenda:
@@ -22,14 +22,56 @@
 - [GitHub for Windows](http://windows.github.com/)
 - [GitHub account](https://github.com/)
 
+## Summary:
+    
+- basic git commands:
+    
+~~~ 
+git help // should be obvious
+git init // create local repo
+git status // get status
+git add <filename> // add file to staging
+git add . // add all files to staging
+git commit -m "message" // commit with message
+git diff // line-by-line comparison
+git commit -am "message" // add all tracked files to staging and commit with message 
+git log // show commit log
+git checkout <commit> // point HEAD at commit
+git branch // list branches
+git checkout master // point HEAD at master
+git branch answer-hello // create branch answer-hello
+git checkout answer-hello // point HEAD at answer-hello
+git remote add origin <repo url> // add remote with repo url and call it origin
+git merge answer-hello master // merge answer-hello into master
+git clone <repo url> // get everything from repo url
+git push origin master // push new commits to origin/master
+git pull origin master // pull new commits from origin/master
+~~~
+
+- Tips and tricks:
+    - git status will tell you what to do (if it makes no sense, google)
+    - Don't remember what you've changed? git diff
+    - Atomic commits (they should accomplish just one thing)
+    - Work in your own branch
+    - Merge master into feature branch **before** merging feature branch into master
+    - Have one person in your group be a "git master"
+    
+## retard:
+    
+![](images/retard.png)
+
+## git:
+    
+![](images/git.png)
+
 ## git:
     
 - "fast, scalable, distributed revision control system"
+    - not an improved version of SVN (two very different systems)
     - Repository (archive) with full history (versioning)
     - Local copy (fast, good for offline usage)
     - Powerful and cheap branching and merging
-    - Flexible: a workflow for any project
-    - not an improved version of SVN - very different
+    - Flexible: a workflow for any project    
     
 > - "the stupid content tracker"
     - You can break your repo
@@ -160,7 +202,7 @@ git log --graph --oneline --decorate // pretty!
 
 ## git basics demo:
     
-- Working with remotes:    
+- Working with remotes (e.g. git@github.com:TBroedsgaard/github-intro.git):    
     
 ~~~
 git remote add origin <repo url> // add remote with repo url and call it origin
@@ -204,31 +246,10 @@ git push origin master
 ## git basics demo:
     
 ~~~
-git pull origin master
+git pull origin master // pull new commits from origin/master
 ~~~
     
 ![](images/git15.png)
-
-## git basic commands:
-
-~~~ 
-git init // create local repo
-git status // get status
-git add . // add all untracked files to staging
-git commit -m "message" // commit with message
-git diff // line-by-line comparison
-git commit -am "message" // add all tracked files to staging and commit with message 
-git log // show commit log
-git checkout <commit> // point HEAD at commit
-git branch // list branches
-git checkout master // point HEAD at master
-git branch answer-hello // create branch answer-hello
-git checkout answer-hello // point HEAD at answer-hello
-git merge answer-hello master // merge answer-hello into master
-git clone <repo url> // get everything from repo url
-git push origin master // push new commits to origin/master
-git pull origin master // pull new commits from origin/master
-~~~
 
 ## git basic branching and merging:    
 
@@ -350,7 +371,7 @@ git status
 - and commit (can also be done in GH4W)
 
 ~~~
-git commit - m "message"
+git commit -m "message"
 git status
 ~~~
 
