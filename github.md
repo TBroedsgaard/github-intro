@@ -257,7 +257,7 @@ git pull origin master // pull new commits from origin/master
 
 ## GitHub-flow:
     
-![](images/githubflow.png)    
+![](http://theodi.github.io/presentations/open-data-flow/github_flow.png)    
 
 - master is always in a deployable state
 - Bugfixes and features developed in seperate branches
