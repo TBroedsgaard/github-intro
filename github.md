@@ -56,18 +56,18 @@ git pull origin master // pull new commits from origin/master
     - Merge master into feature branch **before** merging feature branch into master
     - Have one person in your group be a "git master"
     
+## git:
+    
+![](images/git.png)
+
 ## retard:
     
 ![](images/retard.png)
 
 ## git:
     
-![](images/git.png)
-
-## git:
-    
 - "fast, scalable, distributed revision control system"
-    - not an improved version of SVN (two very different systems)
+    - Not an improved version of SVN (two very different systems)
     - Repository (archive) with full history (versioning)
     - Local copy (fast, good for offline usage)
     - Powerful and cheap branching and merging
@@ -83,7 +83,7 @@ git pull origin master // pull new commits from origin/master
 - Develop features in iterations
     - Write minimum code to make it work
     - Stage and commit changes
-    - Iterate, adding try-catch
+    - Iterate, adding try-catch etc
     - Stage and commit changes
     - Iterate, clean up code (add comments etc)
     - Stage and commit changes
@@ -273,6 +273,7 @@ git pull origin master // pull new commits from origin/master
 - Issue management (and wiki and other awesome features)
 - Pretty stable
 - De facto standard for open source (forking, pull request)
+- Many good third party services
 - Team and organization repo
 - Expensive for private repo
 
@@ -300,9 +301,11 @@ git pull origin master // pull new commits from origin/master
     
 - Issues & Milestones
 - [Huboard](http://www.huboard.com) - Beta version rocks
+- Travis-CI
+- coveralls
 - Pull request as discussion
 - Code review
-- No timetracking & burndown :( (do it yourself)
+- No timetracking / burndown :( (do it yourself)
     
 ## Break:
 
