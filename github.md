@@ -54,6 +54,7 @@ git pull origin master // pull new commits from origin/master
     - Atomic commits (they should accomplish just one thing)
     - Work in your own branch
     - Merge master into feature branch **before** merging feature branch into master
+    - (Visual Studio) SAVE ALL BEFORE COMMITTING
     - Have one person in your group be a "git master"
     
 ## git:
@@ -317,7 +318,7 @@ git pull origin master // pull new commits from origin/master
 
 ![](images/branch.png)    
 
-- Do work, then commit
+- Do work, SAVE ALL, then commit
 
 ![](images/commit.png)    
 
